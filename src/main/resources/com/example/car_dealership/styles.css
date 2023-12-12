@@ -1,0 +1,86 @@
+/* styles.css */
+
+SplitPane {
+    -fx-cornerRadius: 5px;
+    -fx-divider-position: 0.5;
+}
+
+/* Left VBox for car details */
+VBox {
+    -fx-cornerRadius: 5px;
+    -fx-padding: 10px;
+}
+
+Label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+}
+
+HBox {
+    -fx-cornerRadius: 5px;
+    -fx-spacing: 20px;
+    -fx-alignment: center;
+}
+
+TextField{
+    -fx-pref-height: 25.0;
+    -fx-pref-width: 100.0;
+    -fx-background-color: #f5f5f5; /* Light gray background */
+    -fx-border-color: #ccc; /* Light border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+Button {
+    -fx-pref-height: 25.0;
+    -fx-pref-width: 100.0;
+    -fx-background-color: #2196f3;
+    -fx-text-fill: #fff;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+ChoiceBox {
+    -fx-pref-height: 25.0;
+    -fx-pref-width: 100.0;
+    -fx-background-color: #f5f5f5; /* Light gray background */
+    -fx-border-color: #ccc; /* Light border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+
+/* Right ScrollPane for features */
+ScrollPane {
+    -fx-padding: 10px;
+}
+
+VBox#checkboxContainer {
+    -fx-spacing: 5px;
+}
+/* ScrollPane */
+ScrollPane {
+    -fx-background-color: #f9f9f9; /* Light gray background */
+    -fx-border-color: #ccc; /* Light border color */
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+/* ScrollBar track and thumb */
+ScrollPane .scroll-bar {
+    -fx-background-color: transparent; /* Transparent scrollbar track */
+}
+
+ScrollPane .scroll-bar:vertical .thumb {
+    -fx-background-color: #bbb; /* Scrollbar thumb color */
+    -fx-background-insets: 3, 3, 2;
+    -fx-background-radius: 4px;
+
+}
+
+/* Hover effect on scrollbar thumb */
+ScrollPane .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #999; /* Darker color on hover */
+}
+
+
+

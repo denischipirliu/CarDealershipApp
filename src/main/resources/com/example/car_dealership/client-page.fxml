@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.ClientPage">
+    <!-- Load the image -->
+    <stylesheets>
+        <String fx:value="styles.css" />
+    </stylesheets>
+    <!-- Add an ImageView to hold the background image -->
+    <ImageView fitHeight="900.0" fitWidth="1600.0">
+        <image>
+            <Image url="@background-client.jpg" />
+        </image>
+    </ImageView>
+    <BorderPane layoutY="-2.0" prefHeight="900.0" prefWidth="1600.0">
+        <top>
+            <MenuBar prefWidth="1600.0" stylesheets="styles.css" BorderPane.alignment="CENTER">
+                <menus>
+                    <Menu mnemonicParsing="false" text="Home">
+                        <items>
+                            <MenuItem mnemonicParsing="false" text="Contact" />
+
+                        </items>
+                    </Menu>
+                    <Menu mnemonicParsing="false" text="Cars">
+                        <items>
+                            <MenuItem mnemonicParsing="false" text="Search" />
+                            <MenuItem mnemonicParsing="false" text="Buy" />
+                            <MenuItem mnemonicParsing="false" text="Sell" />
+
+                        </items>
+                    </Menu>
+                    <Menu mnemonicParsing="false" text="Profile">
+                        <items>
+                            <MenuItem fx:id="editProfile" mnemonicParsing="false" onAction="#handleEditClick" text="Edit" />
+                            <MenuItem mnemonicParsing="false" text="About" />
+                            <MenuItem mnemonicParsing="false" text="Contact" />
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+        </top>
+    </BorderPane>
+
+    <!-- Your other content goes here -->
+</Pane>
