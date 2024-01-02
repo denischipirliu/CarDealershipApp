@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import java.net.URL?>
 <SplitPane dividerPositions="0.5" prefHeight="800" prefWidth="1200" styleClass="main-container" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.EditCarController">
     <!-- Left side for car details -->
     <VBox alignment="CENTER" style="-fx-padding: 10px;">
@@ -71,6 +72,6 @@
         </VBox>
     </ScrollPane>
     <stylesheets>
-        <String fx:value="styles.css" />
+        <URL value="@styles.css" />
     </stylesheets>
 </SplitPane>

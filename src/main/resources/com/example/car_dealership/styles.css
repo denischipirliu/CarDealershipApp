@@ -1,8 +1,12 @@
 /* styles.css */
 
+.background {
+    -fx-background: linear-gradient(to top, #dfe9f3 0%, white 100%);
+}
 SplitPane {
     -fx-cornerRadius: 5px;
     -fx-divider-position: 0.5;
+
 }
 
 /* Left VBox for car details */
@@ -12,7 +16,7 @@ VBox {
 }
 
 Label {
-    -fx-font-size: 18px;
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #000000;
 }
@@ -28,17 +32,69 @@ TextField{
     -fx-pref-width: 100.0;
     -fx-background-color: #f5f5f5; /* Light gray background */
     -fx-border-color: #ccc; /* Light border color */
-    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-border-radius: 10px; /* Rounded corners */
 }
-
-Button {
+PasswordField{
     -fx-pref-height: 25.0;
     -fx-pref-width: 100.0;
-    -fx-background-color: #2196f3;
-    -fx-text-fill: #fff;
+    -fx-background-color: #f5f5f5; /* Light gray background */
+    -fx-border-color: #ccc; /* Light border color */
+    -fx-border-radius: 10px; /* Rounded corners */
+}
+.check-box .text {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+.check-box .box {
+
+    -fx-background-color: white;
+    -fx-border-color:grey;
+    -fx-border-radius:3px;
+
+}
+
+.check-box:selected .mark {
+
+    -fx-background-color: white;
+
+}
+
+.check-box:selected .box {
+
+    -fx-background-color: #28a3f4;
+}
+.check-box .text-field {
+    -fx-pref-height: 25.0;
+    -fx-pref-width: 100.0;
+    -fx-background-color: #f5f5f5; /* Light gray background */
+    -fx-border-color: #ccc; /* Light border color */
+    -fx-border-radius: 10px; /* Rounded corners */
+}
+
+.button {
+    -fx-pref-height: 25.0;
+    -fx-pref-width: 100.0;
+    -fx-border-radius: 30px;
+    -fx-border-width: 5px;
+    -fx-border-insets: -5px;
+    -fx-background-color: linear-gradient(to right, rgb(13, 11, 136) 9.4%, rgb(86, 255, 248) 78.4%);
+    -fx-background-radius: 30px;
+    -fx-text-fill: #ffffff;
     -fx-font-weight: bold;
     -fx-font-size: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 0);
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
 }
+
+.button:hover {
+    -fx-background-color: linear-gradient(to right, rgb(86, 255, 248) 9.4%, rgb(13, 11, 136) 78.4%);
+    -fx-border-width: 5px; /* Increase border width on hover */
+    -fx-border-color: white; /* Show border color on hover */
+}
+
+
+
 
 ChoiceBox {
     -fx-pref-height: 25.0;
@@ -81,6 +137,60 @@ ScrollPane .scroll-bar:vertical .thumb {
 ScrollPane .scroll-bar:vertical .thumb:hover {
     -fx-background-color: #999; /* Darker color on hover */
 }
+GridPane > * {
+    -fx-border-color: #ccc; /* Light border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-padding: 5px;
+}
+.dashboard-label {
+    -fx-font-size: 36px;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 0);
+}
+.cars {
+    -fx-background-color: #ff6f61;
+}
 
+.customers {
+    -fx-background-color: #45ada8;
+}
+
+.orders {
+    -fx-background-color: #fcbf49;
+}
+
+.dashboard-label:hover {
+    -fx-background-color: #333333;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 15, 0, 0, 0);
+}
+.dashboard-label-title {
+    -fx-font-size: 40px;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 0);
+}
+.dashboard-background {
+    -fx-background-color: #E9F1FA;
+}
+.sidemenu {
+    -fx-background-color: linear-gradient(to top, #09203f 0%, #537895 100%);
+}
+.sidemenu .label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 0);
+}
+.sidemenu .label:hover {
+    -fx-background-color: #333333;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 15, 0, 0, 0);
+}
+.topmenu {
+    -fx-background-color: linear-gradient(to bottom, #09203f 0%, #537895 100%);
+}
 
 

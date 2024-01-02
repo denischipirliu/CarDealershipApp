@@ -1,5 +1,7 @@
 package com.example.car_dealership;
 
+import com.example.car_dealership.Car;
+import com.example.car_dealership.dao.CarDao;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -74,8 +76,6 @@ public class AddCarController {
         initializeCheckBoxes();
         selectImageButton.setOnAction(this::handleSelectImage);
         addCarButton.setOnAction(this::handleAddCarButton);
-        backButton.setOnAction(this::handleBackButton);
-        viewCarsButton.setOnAction(this::handleViewCarsButton);
     }
 
     private void initializeCheckBoxes() {
@@ -106,9 +106,9 @@ public class AddCarController {
                 features.add(checkBox.getText());
             }
         }
-        Car car = new Car(make, model, year, price, color, mileage, vin, engineType, transmissionType, fuelType, seatingCapacity, features, image);
+        Car newCar = new Car(make, model, year, price, color, mileage, vin, engineType, transmissionType, fuelType, seatingCapacity, features, image, CarStatus.AVAILABLE);
         CarDao carDao = new CarDao();
-        carDao.addCar(car);
+        carDao.addCar(newCar);
         Alert carAdded = new Alert(Alert.AlertType.INFORMATION);
         carAdded.setTitle("Car Added");
         carAdded.setContentText("The car has been added to the database.");
@@ -121,29 +121,5 @@ public class AddCarController {
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
         carImage = new Image(fileChooser.showOpenDialog(null).toURI().toString());
         carImageView.setImage(carImage);
-    }
-
-    public void handleBackButton(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("admin-page.fxml"));
-            Parent root = fxmlLoader.load();
-            Scene currentScene = ((Node) event.getSource()).getScene();
-            currentScene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
-            currentScene.setRoot(root);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void handleViewCarsButton(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("view-cars.fxml"));
-            Parent root = fxmlLoader.load();
-            Scene currentScene = ((Node) event.getSource()).getScene();
-            currentScene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
-            currentScene.setRoot(root);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

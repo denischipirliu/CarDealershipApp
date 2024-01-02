@@ -1,5 +1,6 @@
 package com.example.car_dealership;
 
+import com.example.car_dealership.dao.UserDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,9 +11,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import java.util.prefs.*;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class LoginController {
     @FXML
@@ -34,8 +35,17 @@ public class LoginController {
     }
 
     public void login(ActionEvent event) {
-        User user = new UserDao().getUser(usernameField.getText());
         UserDao userDao = new UserDao();
+        if(usernameField.getText().isEmpty() || passwordField.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Login failed!");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter username and password!");
+            alert.showAndWait();
+            return;
+        }
+        User user = userDao.getUser(usernameField.getText());
+        user.setPassword(passwordField.getText());
         boolean flag = userDao.validate(user);
         String role = userDao.getUserRole(user);
 
@@ -53,16 +63,29 @@ public class LoginController {
                         loadPage("admin-page.fxml");
                         break;
                     case "client":
-                        Preferences userPreferences = Preferences.userRoot();
-                        userPreferences.put("username", user.getUsername());
-                        userPreferences.put("password", user.getPassword());
-                        userPreferences.put("role", user.getRole());
                         Alert alertClient = new Alert(Alert.AlertType.INFORMATION);
                         alertClient.setTitle("Login successful!");
                         alertClient.setHeaderText(null);
                         alertClient.setContentText("Welcome, " + user.getUsername() + "!");
                         alertClient.showAndWait();
-                        loadPage("client-page.fxml");
+                        try {
+                            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("client-page.fxml"));
+                            Parent root = fxmlLoader.load();
+                            ClientPageController clientPageController = fxmlLoader.getController();
+                            clientPageController.setUser(user);
+
+                            Stage currentStage = (Stage) loginButton.getScene().getWindow();
+                            currentStage.close();
+
+                            Stage newStage = new Stage();
+                            newStage.getIcons().add(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icon.png"))));
+                            newStage.setTitle("Car Dealership");
+                            newStage.setScene(new Scene(root));
+                            newStage.show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            System.out.println("Error opening new window!");
+                        }
                         break;
                     default:
                         System.out.println("Unrecognized role: " + role);
@@ -73,6 +96,11 @@ public class LoginController {
             }
         } else {
             System.out.println("Invalid username or password!");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Login failed!");
+            alert.setHeaderText(null);
+            alert.setContentText("Invalid username or password!");
+            alert.showAndWait();
         }
     }
 
@@ -85,7 +113,7 @@ public class LoginController {
             currentStage.close();
 
             Stage newStage = new Stage();
-            newStage.getIcons().add(new Image(Application.class.getResourceAsStream("icon.png")));
+            newStage.getIcons().add(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icon.png"))));
             newStage.setTitle("Car Dealership");
             newStage.setScene(new Scene(root));
             newStage.show();
@@ -102,10 +130,11 @@ public class LoginController {
                 Parent root = fxmlLoader.load();
                 Stage stage = (Stage) signUpButton.getScene().getWindow();
                 Scene scene = new Scene(root);
-                scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
+                scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("styles.css")).toExternalForm());
                 stage.setScene(scene);
                 stage.show();
-            } catch (IOException e) {
+            }
+                 catch (IOException e) {
                 e.printStackTrace();
                 System.out.println("Error opening sign up window!");
             }

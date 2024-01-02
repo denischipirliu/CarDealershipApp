@@ -6,9 +6,9 @@ import java.util.Base64;
 
 public class User {
     private int id;
-    private final String username;
-    private final String password;
-    private final String role;
+    private  String username;
+    private  String password;
+    private  String role;
 
     public User(String username, String password, String role) {
         if (username == null || username.isEmpty()) {
@@ -24,6 +24,10 @@ public class User {
         this.username = username;
         this.password = password;
         this.role = role;
+    }
+
+    public User() {
+
     }
 
     public String getUsername() {
@@ -44,6 +48,18 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
 

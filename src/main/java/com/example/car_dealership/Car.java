@@ -2,7 +2,7 @@ package com.example.car_dealership;
 
 import java.util.List;
 
-public class Car {
+public class Car{
     int id;
     private String make;
     private String model;
@@ -17,8 +17,9 @@ public class Car {
     private int seatingCapacity;
     private List<String> features;
     private String image;
+    private CarStatus status;
 
-    public Car(String make, String model, int year, float price, String color, int mileage, String vin, String engineType, String transmissionType, String fuelType, int seatingCapacity, List<String> features, String image) {
+    public Car(String make, String model, int year, float price, String color, int mileage, String vin, String engineType, String transmissionType, String fuelType, int seatingCapacity, List<String> features, String image, CarStatus status) {
         this.make = make;
         this.model = model;
         this.year = year;
@@ -32,6 +33,7 @@ public class Car {
         this.seatingCapacity = seatingCapacity;
         this.features = features;
         this.image = image;
+        this.status = CarStatus.AVAILABLE;
     }
 
     public String getMake() {

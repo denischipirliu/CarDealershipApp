@@ -1,5 +1,8 @@
-package com.example.car_dealership;
+package com.example.car_dealership.dao;
 
+
+import com.example.car_dealership.Car;
+import com.example.car_dealership.CarStatus;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -18,16 +21,24 @@ public class CarDao {
     private static final String GET_FEATURES_QUERY = "SELECT feature_name FROM features";
     private static final String INSERT_CAR_FEATURE_QUERY = "INSERT INTO car_features (car_id, feature_id) VALUES (?, ?)";
     private static final String GET_FEATURE_ID_QUERY = "SELECT feature_id FROM features WHERE feature_name = ?";
-    private static final String GET_CAR_ID_QUERY = "SELECT car_id FROM cars WHERE vin_number = ?";
+    private static final String GET_CAR_QUERY = "SELECT car_id,make_name, model_name, year, price, color, mileage, vin_number, engine_type, transmission_type, fuel_type, seating_capacity, image_path FROM cars " +
+            "INNER JOIN makes ON cars.make_id = makes.make_id " +
+            "INNER JOIN models ON cars.model_id = models.model_id " +
+            "WHERE car_id = ?";
     private static final String GET_CARS_QUERY = "SELECT car_id,make_name, model_name, year, price, color, mileage, vin_number, engine_type, transmission_type, fuel_type, seating_capacity, image_path FROM cars " +
             "INNER JOIN makes ON cars.make_id = makes.make_id " +
-            "INNER JOIN models ON cars.model_id = models.model_id";
+            "INNER JOIN models ON cars.model_id = models.model_id AND status = 'available'";
     private static final String GET_CAR_FEATURES_QUERY = "SELECT feature_name FROM car_features " +
             "INNER JOIN features ON car_features.feature_id = features.feature_id " +
             "WHERE car_id = ?";
     private static final String DELETE_CAR_QUERY = "DELETE FROM cars WHERE car_id = ?";
-    private static final String UPDATE_CAR_QUERY = "UPDATE cars SET make_id = ?, model_id = ?, year = ?, price = ?, color = ?, mileage = ?, vin_number = ?, engine_type = ?, transmission_type = ?, fuel_type = ?, seating_capacity = ?, image_path = ? WHERE car_id = ?";
+    private static final String UPDATE_CAR_QUERY = "UPDATE cars SET make_id = ?, model_id = ?, year = ?, price = ?, color = ?, mileage = ?, vin_number = ?, engine_type = ?, transmission_type = ?, fuel_type = ?, seating_capacity = ?, image_path = ? WHERE car_id = ? AND status = 'available'";
     private static final String DELETE_CAR_FEATURE_QUERY = "DELETE FROM car_features WHERE car_id = ?";
+    private static final String FILTER_SELECT_QUERY = "SELECT car_id,make_name, model_name, year, price, color, mileage, vin_number, engine_type, transmission_type, fuel_type, seating_capacity, image_path FROM cars " +
+            "INNER JOIN makes ON cars.make_id = makes.make_id " +
+            "INNER JOIN models ON cars.model_id = models.model_id  AND status = 'available'";
+    private static final String UPDATE_CAR_STATUS_QUERY = "UPDATE cars SET status = 'sold' WHERE car_id = ?";
+
     public List<String> getMakesFromDatabase() {
         List<String> makes = new ArrayList<>();
         String sql = GET_MAKES_QUERY; // Your SQL query to fetch makes
@@ -117,10 +128,14 @@ public class CarDao {
             preparedStatement.setInt(11, car.getSeatingCapacity());
             preparedStatement.setString(12, car.getImage());
             preparedStatement.executeUpdate();
+            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                car.setId(generatedKeys.getInt("car_id"));
+            }
+            addFeaturesToCar(car);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        addFeaturesToCar(car);
     }
 
     public List<String> getFeaturesFromDatabase() {
@@ -146,7 +161,7 @@ public class CarDao {
 
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                 for (String feature : car.getFeatures()) {
-                    int carId = getCarIdFromDatabase(connection, car);
+                    int carId = car.getId();
                     int featureId = getFeatureIdFromDatabase(connection, feature);
 
                     if (carId != 0 && featureId != 0) {
@@ -163,10 +178,11 @@ public class CarDao {
             e.printStackTrace();
         }
     }
+
     private void deleteCarFeaturesFromDatabase(Connection connection, Car car) throws SQLException {
         String sql = DELETE_CAR_FEATURE_QUERY;
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setInt(1, getCarIdFromDatabase(connection, car));
+            preparedStatement.setInt(1, car.getId());
             preparedStatement.executeUpdate();
         }
     }
@@ -185,21 +201,6 @@ public class CarDao {
             e.printStackTrace();
         }
         return carFeatures;
-    }
-
-
-    private int getCarIdFromDatabase(Connection connection, Car car) throws SQLException {
-        int carId = 0;
-        String sql = GET_CAR_ID_QUERY;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setString(1, car.getVin());
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    carId = resultSet.getInt("car_id");
-                }
-            }
-        }
-        return carId;
     }
 
     private int getFeatureIdFromDatabase(Connection connection, String feature) throws SQLException {
@@ -223,6 +224,7 @@ public class CarDao {
              PreparedStatement preparedStatement = connection.prepareStatement(sql);
              ResultSet resultSet = preparedStatement.executeQuery()) {
             while (resultSet.next()) {
+                int id = resultSet.getInt("car_id");
                 String make = resultSet.getString("make_name");
                 String model = resultSet.getString("model_name");
                 int year = resultSet.getInt("year");
@@ -236,7 +238,8 @@ public class CarDao {
                 int seatingCapacity = resultSet.getInt("seating_capacity");
                 List<String> features = getCarFeaturesFromDatabase(resultSet.getInt("car_id"));
                 String image = resultSet.getString("image_path");
-                Car car = new Car(make, model, year, price, color, mileage, vin, engineType, transmissionType, fuelType, seatingCapacity, features, image);
+                Car car = new Car(make, model, year, price, color, mileage, vin, engineType, transmissionType, fuelType, seatingCapacity, features, image, CarStatus.AVAILABLE);
+                car.setId(id);
                 cars.add(car);
             }
         } catch (SQLException e) {
@@ -244,38 +247,40 @@ public class CarDao {
         }
         return cars;
     }
-    public Car getCarFromDatabase(String vin) {
+
+    public Car getCar(int id) {
         Car car = null;
-        String sql = GET_CARS_QUERY + " WHERE vin_number = ?";
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
-             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setString(1, vin);
+             PreparedStatement preparedStatement = connection.prepareStatement(GET_CAR_QUERY)) {
+            preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
+            if (resultSet.next()){
                 String make = resultSet.getString("make_name");
                 String model = resultSet.getString("model_name");
                 int year = resultSet.getInt("year");
                 float price = resultSet.getFloat("price");
                 String color = resultSet.getString("color");
                 int mileage = resultSet.getInt("mileage");
-                String vinNumber = resultSet.getString("vin_number");
+                String vin = resultSet.getString("vin_number");
                 String engineType = resultSet.getString("engine_type");
                 String transmissionType = resultSet.getString("transmission_type");
                 String fuelType = resultSet.getString("fuel_type");
                 int seatingCapacity = resultSet.getInt("seating_capacity");
                 List<String> features = getCarFeaturesFromDatabase(resultSet.getInt("car_id"));
                 String image = resultSet.getString("image_path");
-                car = new Car(make, model, year, price, color, mileage, vinNumber, engineType, transmissionType, fuelType, seatingCapacity, features, image);
+                car = new Car(make, model, year, price, color, mileage, vin, engineType, transmissionType, fuelType, seatingCapacity, features, image, CarStatus.AVAILABLE);
+                car.setId(id);
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return car;
     }
+
     public void updateCar(Car car) {
-        try(Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
-            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_CAR_QUERY)) {
-            int id = getCarIdFromDatabase(connection,car);
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_CAR_QUERY)) {
             preparedStatement.setInt(1, getMakeIdFromDatabase(car.getMake()));
             preparedStatement.setInt(2, getModelIdFromDatabase(car.getModel()));
             preparedStatement.setInt(3, car.getYear());
@@ -288,11 +293,11 @@ public class CarDao {
             preparedStatement.setString(10, car.getFuelType());
             preparedStatement.setInt(11, car.getSeatingCapacity());
             preparedStatement.setString(12, car.getImage());
-            preparedStatement.setInt(13, id);
+            preparedStatement.setInt(13, car.getId());
             preparedStatement.executeUpdate();
             deleteCarFeaturesFromDatabase(connection, car);
             addFeaturesToCar(car);
-        } catch (SQLException e){
+        } catch (SQLException e) {
 
         }
     }
@@ -302,12 +307,10 @@ public class CarDao {
              PreparedStatement preparedStatementCars = connection.prepareStatement(DELETE_CAR_QUERY);
              PreparedStatement preparedStatementCarFeatures = connection.prepareStatement(DELETE_CAR_FEATURE_QUERY)) {
 
-            int carId = getCarIdFromDatabase(connection, car);
-
-            preparedStatementCarFeatures.setInt(1, carId);
+            preparedStatementCarFeatures.setInt(1, car.getId());
             preparedStatementCarFeatures.executeUpdate();
 
-            preparedStatementCars.setInt(1, carId);
+            preparedStatementCars.setInt(1, car.getId());
             preparedStatementCars.executeUpdate();
 
 
@@ -316,4 +319,72 @@ public class CarDao {
         }
     }
 
+    public List<Car> getFilteredCars(String make, String model, int year, float price, int mileage) {
+        List<Car> cars = new ArrayList<>();
+        StringBuilder queryBuilder = new StringBuilder(FILTER_SELECT_QUERY);
+        List<Object> params = new ArrayList<>();
+
+        queryBuilder.append(" WHERE 1 = 1");
+
+        if (make != null && !make.isEmpty()) {
+            queryBuilder.append(" AND make_name = ?");
+            params.add(make);
+        }
+        if (model != null && !model.isEmpty()) {
+            queryBuilder.append(" AND model_name = ?");
+            params.add(model);
+        }
+        if (year != 0) {
+            queryBuilder.append(" AND year >= ?");
+            params.add(year);
+        }
+        if (price != 0) {
+            queryBuilder.append(" AND price <= ?");
+            params.add(price);
+        }
+        if (mileage != 0) {
+            queryBuilder.append(" AND mileage <= ?");
+            params.add(mileage);
+        }
+
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
+             PreparedStatement preparedStatement = connection.prepareStatement(queryBuilder.toString())) {
+            for (int i = 0; i < params.size(); i++) {
+                preparedStatement.setObject(i + 1, params.get(i));
+            }
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("car_id");
+                String make1 = resultSet.getString("make_name");
+                String model1 = resultSet.getString("model_name");
+                int year1 = resultSet.getInt("year");
+                float price1 = resultSet.getFloat("price");
+                String color = resultSet.getString("color");
+                int mileage1 = resultSet.getInt("mileage");
+                String vin = resultSet.getString("vin_number");
+                String engineType = resultSet.getString("engine_type");
+                String transmissionType = resultSet.getString("transmission_type");
+                String fuelType = resultSet.getString("fuel_type");
+                int seatingCapacity = resultSet.getInt("seating_capacity");
+                List<String> features = getCarFeaturesFromDatabase(resultSet.getInt("car_id"));
+                String image = resultSet.getString("image_path");
+                Car car = new Car(make1, model1, year1, price1, color, mileage1, vin, engineType, transmissionType, fuelType, seatingCapacity, features, image, CarStatus.AVAILABLE);
+                car.setId(id);
+                cars.add(car);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return cars;
+    }
+    public void updateCarStatusSold(int id) {
+        try(Connection connection = DriverManager.getConnection(DATABASE_URL,DATABASE_USERNAME,DATABASE_PASSWORD) ;
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_CAR_STATUS_QUERY)) {
+            preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 }

@@ -1,11 +1,9 @@
 package com.example.car_dealership;
 
+import com.example.car_dealership.dao.CarDao;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -13,7 +11,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.prefs.Preferences;
@@ -52,6 +49,7 @@ public class EditCarController {
     private ImageView carImageView;
     @FXML
     private Image carImage;
+    private Car car;
 
     public EditCarController() {
 
@@ -68,7 +66,6 @@ public class EditCarController {
             modelChoiceBox.setItems(FXCollections.observableArrayList(models));
         });
         initializeCheckBoxes();
-        initializeCarInformation();
         selectImageButton.setOnAction(this::handleSelectImage);
         editCarButton.setOnAction(this::handleEditCarButton);
     }
@@ -79,11 +76,8 @@ public class EditCarController {
             checkboxContainer.getChildren().add(checkBox);
         }
     }
+    @FXML
     private void initializeCarInformation() {
-        Preferences preferences = Preferences.userNodeForPackage(EditCarController.class);
-        String vin = preferences.get("car", "");
-        CarDao carDao = new CarDao();
-        Car car = carDao.getCarFromDatabase(vin);
         makeChoiceBox.setValue(car.getMake());
         modelChoiceBox.setValue(car.getModel());
         yearField.setText(String.valueOf(car.getYear()));
@@ -127,9 +121,10 @@ public class EditCarController {
                 features.add(checkBox.getText());
             }
         }
-        Car car = new Car(make, model, year, price, color, mileage, vin, engineType, transmissionType, fuelType, seatingCapacity, features, image);
+        Car updatedCar = new Car(make, model, year, price, color, mileage, vin, engineType, transmissionType, fuelType, seatingCapacity, features, image, CarStatus.AVAILABLE);
+        updatedCar.setId(car.getId());
         CarDao carDao = new CarDao();
-        carDao.updateCar(car);
+        carDao.updateCar(updatedCar);
         Alert carAdded = new Alert(Alert.AlertType.INFORMATION);
         carAdded.setTitle("Car Updated");
         carAdded.setContentText("The car has been updated in the database.");
@@ -138,7 +133,7 @@ public class EditCarController {
         Stage currentStage = (Stage) editCarButton.getScene().getWindow();
         currentStage.close();
     }
-
+    @FXML
     public void handleSelectImage(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select Car Image");
@@ -147,5 +142,8 @@ public class EditCarController {
         carImageView.setImage(carImage);
     }
 
-
+    public void setCar(Car car) {
+        this.car = car;
+        initializeCarInformation();
+    }
 }

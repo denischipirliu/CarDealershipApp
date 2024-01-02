@@ -6,9 +6,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.EditProfilePage">
+<?import java.net.URL?>
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.ProfileController">
     <stylesheets>
-        <String fx:value="styles.css" />
+        <URL value="@styles.css" />
     </stylesheets>
     <children>
         <ImageView fitHeight="83.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
@@ -16,7 +17,7 @@
                 <Image url="@profile-icon.jpg" />
             </image>
         </ImageView>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Profile">
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="My Profile">
             <font>
                 <Font size="25.0" />
             </font>
@@ -51,6 +52,6 @@
                 <TextField fx:id="address" maxWidth="150.0" prefHeight="25.0" prefWidth="150.0" />
             </children>
         </HBox>
-        <Button fx:id="saveButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updateProfile" prefHeight="30.0" prefWidth="50.0" text="Save" />
+        <Button fx:id="saveButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSaveClick" prefHeight="30.0" prefWidth="50.0" text="Save" />
     </children>
 </VBox>

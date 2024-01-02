@@ -13,7 +13,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5" prefHeight="800" prefWidth="1200" styleClass="main-container" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.AddCarController">
+<?import java.net.URL?>
+<SplitPane dividerPositions="0.5" prefHeight="800" prefWidth="1200" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.AddCarController">
     <!-- Left side for car details -->
     <VBox alignment="CENTER" style="-fx-padding: 10px;">
         <Label style="-fx-font-size: 18px;" text="Car Details" />
@@ -59,15 +60,6 @@
                 <Button fx:id="addCarButton" onAction="#handleAddCarButton" prefHeight="25.0" prefWidth="150.0" text="Add Car" />
             </children>
         </HBox>
-      <Button fx:id="viewCarsButton"  alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="View Cars" onAction="#handleViewCarsButton">
-         <VBox.margin>
-            <Insets bottom="10.0" />
-         </VBox.margin>
-      </Button>
-      <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="25.0" prefWidth="50.0" text="Back">
-         <VBox.margin>
-            <Insets />
-         </VBox.margin></Button>
     </VBox>
 
     <!-- Right side for features -->
@@ -80,6 +72,6 @@
         </VBox>
     </ScrollPane>
     <stylesheets>
-        <String fx:value="styles.css" />
+        <URL value="@styles.css" />
     </stylesheets>
 </SplitPane>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="600.0" spacing="5.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.BuyCarController">
+   <children>
+      <Label text="New Order">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin></Label>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="20.0" prefWidth="61.0" text="Product: " />
+            <ImageView fx:id="carImage" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="carName" text="Make and Model, Year" />
+         </children>
+      </HBox>
+      <Label text="Order details">
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin></Label>
+      <Label text="Pick-Up Date" />
+      <DatePicker fx:id="pickupDate" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" />
+      <Label text="Payment Method" />
+      <ChoiceBox fx:id="paymentMethod" minHeight="30.0" minWidth="150.0" prefHeight="30.0" prefWidth="150.0" />
+      <Label fx:id="carPrice" text="Total Price:">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Label>
+      <Button fx:id="placeOrderButton" alignment="CENTER" minHeight="30.0" minWidth="100.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Place Order">
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>

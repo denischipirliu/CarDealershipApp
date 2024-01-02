@@ -3,20 +3,24 @@ package com.example.car_dealership;
 import java.util.prefs.Preferences;
 
 public class Client extends User {
+    private int clientId;
     private String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
     private String address;
-
-
-    public Client(String firstName, String lastName, String email, String phoneNumber, String address) {
-        super(Preferences.userRoot().get("username", null), Preferences.userRoot().get("password", null), Preferences.userRoot().get("role", null));
+    public Client(User user, int clientId,String firstName, String lastName, String email, String phoneNumber, String address) {
+        super(user.getUsername(), user.getPassword(), user.getRole());
+        this.clientId = clientId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
+    }
+
+    public Client() {
+        super();
     }
 
     public String getFirstName() {
@@ -57,5 +61,13 @@ public class Client extends User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public int getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
     }
 }

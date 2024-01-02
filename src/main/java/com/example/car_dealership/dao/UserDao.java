@@ -1,4 +1,6 @@
-package com.example.car_dealership;
+package com.example.car_dealership.dao;
+
+import com.example.car_dealership.User;
 
 import java.sql.*;
 
@@ -10,12 +12,17 @@ public class UserDao {
 
     public void insertUser(User user) throws SQLException {
         try (Connection connection = (Connection) DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
-             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, user.getUsername());
             preparedStatement.setString(2, user.getPassword());
             preparedStatement.setString(3, user.getRole());
             System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
+
+            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                user.setId(generatedKeys.getInt(1));
+            }
         } catch (SQLException e) {
             printSQLException(e);
         }
@@ -41,16 +48,22 @@ public class UserDao {
     public boolean validate(User user) {
         boolean status = false;
         try (Connection connection = (Connection) DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT id FROM users WHERE username = ? AND password = ?")) {
             preparedStatement.setString(1, user.getUsername());
             preparedStatement.setString(2, user.getPassword());
             System.out.println(preparedStatement);
-            status = preparedStatement.executeQuery().next();
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                status = true;
+                // Set the user ID to the User object after successful validation
+                user.setId(resultSet.getInt("id"));
+            }
         } catch (SQLException e) {
             printSQLException(e);
         }
         return status;
     }
+
 
     public String getUserRole(User user) {
         String role = null;
