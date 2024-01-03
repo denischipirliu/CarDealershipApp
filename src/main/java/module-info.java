@@ -13,6 +13,10 @@ module com.example.car_dealership {
 
     opens com.example.car_dealership to javafx.fxml;
     exports com.example.car_dealership;
-    exports com.example.car_dealership.dao;
-    opens com.example.car_dealership.dao to javafx.fxml;
+    exports com.example.car_dealership.model.dao;
+    opens com.example.car_dealership.model.dao to javafx.fxml;
+    exports com.example.car_dealership.controllers;
+    opens com.example.car_dealership.controllers to javafx.fxml;
+    exports com.example.car_dealership.model;
+    opens com.example.car_dealership.model to javafx.fxml;
 }

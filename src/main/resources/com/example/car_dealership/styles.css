@@ -1,14 +1,31 @@
 /* styles.css */
-
-.background {
-    -fx-background: linear-gradient(to top, #dfe9f3 0%, white 100%);
+CheckBox .text {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
 }
+CheckBox .box {
+
+    -fx-background-color: white;
+    -fx-border-color:grey;
+    -fx-border-radius:3px;
+
+}
+
+CheckBox:selected .mark {
+
+    -fx-background-color: white;
+
+}
+CheckBox:selected .box {
+
+    -fx-background-color: #28a3f4;
+}
+
 SplitPane {
     -fx-cornerRadius: 5px;
     -fx-divider-position: 0.5;
 
 }
-
 /* Left VBox for car details */
 VBox {
     -fx-cornerRadius: 5px;
@@ -29,49 +46,20 @@ HBox {
 
 TextField{
     -fx-pref-height: 25.0;
-    -fx-pref-width: 100.0;
+    -fx-pref-width: 200.0;
     -fx-background-color: #f5f5f5; /* Light gray background */
     -fx-border-color: #ccc; /* Light border color */
     -fx-border-radius: 10px; /* Rounded corners */
 }
 PasswordField{
     -fx-pref-height: 25.0;
-    -fx-pref-width: 100.0;
-    -fx-background-color: #f5f5f5; /* Light gray background */
-    -fx-border-color: #ccc; /* Light border color */
-    -fx-border-radius: 10px; /* Rounded corners */
-}
-.check-box .text {
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-}
-.check-box .box {
-
-    -fx-background-color: white;
-    -fx-border-color:grey;
-    -fx-border-radius:3px;
-
-}
-
-.check-box:selected .mark {
-
-    -fx-background-color: white;
-
-}
-
-.check-box:selected .box {
-
-    -fx-background-color: #28a3f4;
-}
-.check-box .text-field {
-    -fx-pref-height: 25.0;
-    -fx-pref-width: 100.0;
+    -fx-pref-width: 200.0;
     -fx-background-color: #f5f5f5; /* Light gray background */
     -fx-border-color: #ccc; /* Light border color */
     -fx-border-radius: 10px; /* Rounded corners */
 }
 
-.button {
+Button {
     -fx-pref-height: 25.0;
     -fx-pref-width: 100.0;
     -fx-border-radius: 30px;
@@ -87,21 +75,18 @@ PasswordField{
     -fx-cursor: hand;
 }
 
-.button:hover {
+Button:hover {
     -fx-background-color: linear-gradient(to right, rgb(86, 255, 248) 9.4%, rgb(13, 11, 136) 78.4%);
-    -fx-border-width: 5px; /* Increase border width on hover */
-    -fx-border-color: white; /* Show border color on hover */
+    -fx-border-width: 5px;
+    -fx-border-color: white;
 }
-
-
-
 
 ChoiceBox {
     -fx-pref-height: 25.0;
     -fx-pref-width: 100.0;
     -fx-background-color: #f5f5f5; /* Light gray background */
     -fx-border-color: #ccc; /* Light border color */
-    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-border-radius: 10px; /* Rounded corners */
 }
 
 
@@ -161,13 +146,9 @@ GridPane > * {
     -fx-background-color: #fcbf49;
 }
 
-.dashboard-label:hover {
-    -fx-background-color: #333333;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 15, 0, 0, 0);
-}
-.dashboard-label-title {
+.title {
     -fx-font-size: 40px;
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: #000000;
     -fx-padding: 10px 20px;
     -fx-border-radius: 5px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 0);
@@ -192,5 +173,6 @@ GridPane > * {
 .topmenu {
     -fx-background-color: linear-gradient(to bottom, #09203f 0%, #537895 100%);
 }
-
-
+.background {
+    -fx-background: linear-gradient(to top, #dfe9f3 0%, white 100%);
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      spacing="10" alignment="CENTER"
+      stylesheets="@../com/example/car_dealership/styles.css">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Contact Our Dealership"/>
+    <Label text="Address: 123 Car Street, City, Country"/>
+    <Label text="Phone: +123 456 789"/>
+    <Label text="Email: info@cardealership.com"/>
+    <Label text="Hours: Mon-Fri 9:00 AM - 6:00 PM"/>
+</VBox>
+

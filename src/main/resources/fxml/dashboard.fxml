@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_LEFT" prefHeight="850.0" prefWidth="1600.0" styleClass="dashboard-background" stylesheets="@../com/example/car_dealership/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.controllers.DashboardController">
+   <children>
+      <Label styleClass="title" text="Dashboard" />
+      <GridPane alignment="CENTER" hgap="20" prefHeight="600" prefWidth="800" vgap="20">
+         <columnConstraints>
+            <ColumnConstraints percentWidth="50" />
+            <ColumnConstraints percentWidth="50" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints percentHeight="33" />
+            <RowConstraints percentHeight="33" />
+            <RowConstraints percentHeight="33" />
+         </rowConstraints>
+         <children>
+            <HBox alignment="CENTER" styleClass="cars" GridPane.columnIndex="0" GridPane.rowIndex="0">
+               <children>
+                  <Label fx:id="totalCarsLabel" styleClass="dashboard-label" text="Cars" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" styleClass="customers" GridPane.columnIndex="0" GridPane.rowIndex="1">
+               <children>
+                  <Label fx:id="totalCustomersLabel" styleClass="dashboard-label" text="Customers" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" styleClass="orders" GridPane.columnIndex="0" GridPane.rowIndex="2">
+               <children>
+                  <Label fx:id="totalSalesLabel" styleClass="dashboard-label" text="Sales" />
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+   </children>
+</VBox>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1500.0" stylesheets="@../com/example/car_dealership/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.controllers.OrdersController">
+   <children>
+      <Label alignment="CENTER" layoutX="699.0" layoutY="22.0" styleClass="title"  text="Orders" />
+      <GridPane fx:id="clientOrdersContainer" layoutX="14.0" layoutY="200.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+      </GridPane>
+      <TableView fx:id="adminOrdersTable" layoutX="325.0" layoutY="200.0" prefHeight="500.0" prefWidth="850.0" visible="false">
+        <columns>
+        </columns>
+      </TableView>
+   </children>
+</Pane>
