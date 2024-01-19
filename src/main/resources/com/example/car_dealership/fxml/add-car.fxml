@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5"  stylesheets="@../com/example/car_dealership/styles.css" prefHeight="800" prefWidth="1200" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.controllers.AddCarController">
+<SplitPane dividerPositions="0.5" stylesheets="@../styles.css" prefHeight="800" prefWidth="1200" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.controllers.AddCarController">
     <!-- Left side for car details -->
     <VBox alignment="CENTER" style="-fx-padding: 10px;">
         <Label style="-fx-font-size: 18px;" text="Car Details" />

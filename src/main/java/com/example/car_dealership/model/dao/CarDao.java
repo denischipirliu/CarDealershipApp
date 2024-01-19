@@ -116,7 +116,7 @@ public class CarDao {
         return modelId;
     }
 
-    public void addCar(Car car) {
+    public void addCar(Car car) throws SQLException {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement(INSERT_CAR_QUERY)) {
             preparedStatement.setInt(1, getMakeIdFromDatabase(car.getMake()));
@@ -137,8 +137,6 @@ public class CarDao {
                 car.setId(generatedKeys.getInt("car_id"));
             }
             addFeaturesToCar(car);
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 
@@ -282,7 +280,7 @@ public class CarDao {
         return car;
     }
 
-    public void updateCar(Car car) {
+    public void updateCar(Car car) throws SQLException {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_CAR_QUERY)) {
             preparedStatement.setInt(1, getMakeIdFromDatabase(car.getMake()));
@@ -301,8 +299,6 @@ public class CarDao {
             preparedStatement.executeUpdate();
             deleteCarFeaturesFromDatabase(connection, car);
             addFeaturesToCar(car);
-        } catch (SQLException e) {
-
         }
     }
 

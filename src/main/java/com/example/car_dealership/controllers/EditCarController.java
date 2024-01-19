@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -103,7 +104,7 @@ public class EditCarController {
 
     @FXML
     private void handleEditCarButton(ActionEvent event) {
-        String make = makeChoiceBox.getValue();
+        try{String make = makeChoiceBox.getValue();
         String model = modelChoiceBox.getValue();
         int year = Integer.parseInt(yearField.getText());
         float price = Float.parseFloat(priceField.getText());
@@ -132,9 +133,18 @@ public class EditCarController {
         carAdded.showAndWait();
 
         Stage currentStage = (Stage) editCarButton.getScene().getWindow();
-        currentStage.close();
+        currentStage.close();}
+        catch (SQLException throwables) {
+            if (throwables.getSQLState().equals("23505") || throwables.getSQLState().equals("23514")) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Invalid input!");
+                alert.showAndWait();
+            }
+        }
     }
-    @FXML
+
     public void handleSelectImage(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select Car Image");

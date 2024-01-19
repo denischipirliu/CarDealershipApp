@@ -7,7 +7,7 @@
 <?import javafx.scene.text.*?>
 
 <?import java.net.URL?>
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.controllers.ProfileController"  stylesheets="@../com/example/car_dealership/styles.css">
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.controllers.ProfileController"  stylesheets="@../styles.css">
 
     <children>
         <Label styleClass="title" text="My Profile">

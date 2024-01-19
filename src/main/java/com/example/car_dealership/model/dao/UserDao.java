@@ -22,8 +22,6 @@ public class UserDao {
             if (generatedKeys.next()) {
                 user.setId(generatedKeys.getInt(1));
             }
-        } catch (SQLException e) {
-            printSQLException(e);
         }
     }
 

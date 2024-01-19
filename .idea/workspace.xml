@@ -4,65 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75f6616d-0f75-472a-95eb-59e2b434f207" name="Changes" comment="2nd Version">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/AddItemsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/DashboardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/icons/dashboard-iocn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/icons/items-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/add-items.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/dashboard.fxml" afterDir="false" />
+    <list default="true" id="75f6616d-0f75-472a-95eb-59e2b434f207" name="Changes" comment="Final version">
+      <change afterPath="$PROJECT_DIR$/Documentation.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/postgresql-42.7.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/AddCarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/AddCarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/AdminPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/AdminPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/BuyCarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/BuyCarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/model/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/CarPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/CarPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/CarStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/model/CarStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/ClientPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/ClientPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/EditCarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/EditCarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/OrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/model/OrderStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/OrdersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/PaymentMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/model/PaymentMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/ViewCarsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/ViewCarsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/ViewClientsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/ViewClientsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/dao/CarDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/model/dao/CarDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/dao/ClientDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/model/dao/ClientDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/dao/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/model/dao/OrderDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/model/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/2017 Civic.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/car_pictures/2017 Civic.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/2022 911.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/car_pictures/2022 911.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/2022 C-Class.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/car_pictures/2022 C-Class.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/add-car.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/add-car.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/admin-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/admin-page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/background-client.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/buy-car.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/buy-car.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/car-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/icons/car-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/car-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/car-page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/client-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/client-page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/clients-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/icons/clients-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/contact-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/icons/contact-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/contact-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/contact-page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/edit-car.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/edit-car.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/home-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/icons/icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/login-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/login-page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/logout-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/icons/logout-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/menu-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/icons/menu-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/order-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/icons/order-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/orders-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/orders-page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/profile-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/profile-page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/sign-up.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/sign-up.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/view-cars.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/view-cars.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/view-clients.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/view-clients.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/AddCarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/AddCarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/AdminPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/AdminPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/CarPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/CarPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/ClientPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/ClientPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/EditCarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/EditCarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/OrdersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/ViewCarsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/controllers/ViewCarsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/model/dao/CarDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/model/dao/CarDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/model/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/car_dealership/model/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/add-car.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/fxml/add-car.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/add-items.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/fxml/add-items.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/admin-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/fxml/admin-page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/buy-car.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/fxml/buy-car.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/car-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/fxml/car-page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/client-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/fxml/client-page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/contact-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/fxml/contact-page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/fxml/dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/edit-car.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/fxml/edit-car.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/login-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/fxml/login-page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/orders-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/fxml/orders-page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/profile-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/fxml/profile-page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/sign-up.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/fxml/sign-up.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/view-cars.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/fxml/view-cars.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/view-clients.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/car_dealership/fxml/view-clients.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,8 +95,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\dench\Documents\FACULTATE\AN 2-SEM 1\OOP\car_dealership\src\main\resources\fxml" />
       <recent name="C:\Users\dench\Documents\FACULTATE\AN 2-SEM 1\OOP\car_dealership\src\main\resources\com\example\car_dealership" />
+      <recent name="C:\Users\dench\Documents\FACULTATE\AN 2-SEM 1\OOP\car_dealership\src\main\resources\fxml" />
       <recent name="C:\Users\dench\Documents\FACULTATE\AN 2-SEM 1\OOP\car_dealership\src\main\resources\com\example\car_dealership\car_pictures" />
       <recent name="C:\Users\dench\Documents\FACULTATE\AN 2-SEM 1\OOP\car_dealership\src\main\resources\com\example\car_dealership\icons" />
       <recent name="C:\Users\dench\Documents\FACULTATE\AN 2-SEM 1\OOP\car_dealership\src\main\resources\com\example\car_dealership\views" />
@@ -219,6 +191,17 @@
       <workItem from="1704225154311" duration="2184000" />
       <workItem from="1704294026127" duration="1929000" />
       <workItem from="1704295969387" duration="2834000" />
+      <workItem from="1704299901611" duration="53000" />
+      <workItem from="1704301479046" duration="3389000" />
+      <workItem from="1704710529144" duration="204000" />
+      <workItem from="1704780380410" duration="3846000" />
+      <workItem from="1704786257752" duration="262000" />
+      <workItem from="1705320647381" duration="698000" />
+      <workItem from="1705386075751" duration="1505000" />
+      <workItem from="1705388592431" duration="1169000" />
+      <workItem from="1705433339330" duration="38000" />
+      <workItem from="1705670242448" duration="1431000" />
+      <workItem from="1705672400090" duration="760000" />
     </task>
     <task id="LOCAL-00001" summary="1st version&#10;Features added:&#10;-Login,Signup,Edit client&#10;-Add,edit,delete,view cars">
       <option name="closed" value="true" />
@@ -236,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704215995260</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Final version">
+      <option name="closed" value="true" />
+      <created>1704299946848</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1704299946848</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,7 +248,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="1st version&#10;Features added:&#10;-Login,Signup,Edit client&#10;-Add,edit,delete,view cars" />
     <MESSAGE value="2nd Version" />
-    <option name="LAST_COMMIT_MESSAGE" value="2nd Version" />
+    <MESSAGE value="Final version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final version" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

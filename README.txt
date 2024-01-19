@@ -1,0 +1,1 @@
+The path of each car's image needs to be changed to the local path of the computer in order to work.

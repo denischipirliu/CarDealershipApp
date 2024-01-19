@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane fx:id="rootPane" prefHeight="900.0" prefWidth="1500.0" stylesheets="@../com/example/car_dealership/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.controllers.ViewClientsController">
+<Pane fx:id="rootPane" prefHeight="900.0" prefWidth="1500.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.controllers.ViewClientsController">
     <!-- Title Label -->
     <children>
         <Label alignment="CENTER" layoutX="699.0" layoutY="22.0" styleClass="title" text="Clients" />

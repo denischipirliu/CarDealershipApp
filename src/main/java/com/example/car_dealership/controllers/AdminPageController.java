@@ -68,7 +68,7 @@ public class AdminPageController {
         addItemsLabel.setOnMouseClicked(this::loadAddItemsPage);
         dashboardLabel.setOnMouseClicked(this::loadDashboardPage);
         dashboardImg.setOnMouseClicked(this::loadDashboardPage);
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/dashboard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/dashboard.fxml"));
         try {
             Parent root = fxmlLoader.load();
             borderPane.setCenter(root);;
@@ -79,7 +79,7 @@ public class AdminPageController {
 
     private void loadClientsPage(MouseEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/view-clients.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/view-clients.fxml"));
             Parent root = fxmlLoader.load();
             borderPane.setCenter(root);
         } catch (IOException e) {
@@ -89,7 +89,7 @@ public class AdminPageController {
 
     private void loadOrdersPage(MouseEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/orders-page.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/orders-page.fxml"));
             Parent root = fxmlLoader.load();
             OrdersController ordersController = fxmlLoader.getController();
             borderPane.setCenter(root);
@@ -103,7 +103,7 @@ public class AdminPageController {
     @FXML
     private void loadCarsPage(MouseEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/view-cars.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/view-cars.fxml"));
             Parent root = fxmlLoader.load();
             borderPane.setCenter(root);
         } catch (IOException e) {
@@ -119,7 +119,7 @@ public class AdminPageController {
             alert.setHeaderText("Are you sure you want to logout?");
             alert.showAndWait();
             if (alert.getResult().getText().equals("OK")) {
-                FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/login-page.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/login-page.fxml"));
                 Parent root = fxmlLoader.load();
                 Stage stage = (Stage) borderPane.getScene().getWindow();
                 Scene scene = new Scene(root);
@@ -146,7 +146,7 @@ public class AdminPageController {
     @FXML
     private void loadAddItemsPage(MouseEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/add-items.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/add-items.fxml"));
             Parent root = fxmlLoader.load();
             borderPane.setCenter(root);
 
@@ -158,7 +158,7 @@ public class AdminPageController {
     @FXML
     private void loadDashboardPage(MouseEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/dashboard.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/dashboard.fxml"));
             Parent root = fxmlLoader.load();
             borderPane.setCenter(root);
         } catch (Exception e) {

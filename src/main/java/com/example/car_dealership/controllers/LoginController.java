@@ -70,7 +70,7 @@ public class LoginController {
                         alertAdmin.setHeaderText(null);
                         alertAdmin.setContentText("Admin " + user.getUsername() + " logged in!");
                         alertAdmin.showAndWait();
-                        loadPage("/fxml/admin-page.fxml");
+                        loadPage("/com/example/car_dealership/fxml/admin-page.fxml");
                         break;
                     case "client":
                         Alert alertClient = new Alert(Alert.AlertType.INFORMATION);
@@ -79,7 +79,7 @@ public class LoginController {
                         alertClient.setContentText("Welcome, " + user.getUsername() + "!");
                         alertClient.showAndWait();
                         try {
-                            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/client-page.fxml"));
+                            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/client-page.fxml"));
                             Parent root = fxmlLoader.load();
                             ClientPageController clientPageController = fxmlLoader.getController();
                             clientPageController.setUser(user);
@@ -131,7 +131,7 @@ public class LoginController {
 
     public void signUp(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/sign-up.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/sign-up.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = (Stage) signUpButton.getScene().getWindow();
             Scene scene = new Scene(root);

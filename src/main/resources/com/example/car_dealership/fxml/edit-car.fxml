@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 <?import java.net.URL?>
-<SplitPane dividerPositions="0.5" prefHeight="800" prefWidth="1200" stylesheets="@../com/example/car_dealership/styles.css" styleClass="background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.controllers.EditCarController">
+<SplitPane dividerPositions="0.5" prefHeight="800" prefWidth="1200" stylesheets="@../styles.css" styleClass="background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.controllers.EditCarController">
     <!-- Left side for car details -->
     <VBox alignment="CENTER" style="-fx-padding: 10px;">
         <Label style="-fx-font-size: 18px;" text="Car Details" />

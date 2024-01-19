@@ -99,7 +99,7 @@ public class ClientPageController {
     @FXML
     private void loadProfilePage(MouseEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/profile-page.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/profile-page.fxml"));
             Parent root = fxmlLoader.load();
             ProfileController profileController = fxmlLoader.getController();
             profileController.setClient(initializeClient(user));
@@ -112,7 +112,7 @@ public class ClientPageController {
     @FXML
     private void loadCarsPage(MouseEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/view-cars.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/view-cars.fxml"));
             Parent root = fxmlLoader.load();
             ViewCarsController viewCarsController = fxmlLoader.getController();
             viewCarsController.setClient(initializeClient(user));
@@ -125,7 +125,7 @@ public class ClientPageController {
     @FXML
     private void loadOrdersPage(MouseEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/orders-page.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/orders-page.fxml"));
             Parent root = fxmlLoader.load();
             OrdersController ordersController = fxmlLoader.getController();
             ordersController.setClient(initializeClient(user));
@@ -139,7 +139,7 @@ public class ClientPageController {
     @FXML
     private void loadContactPage(MouseEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/contact-page.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/contact-page.fxml"));
             Parent root = fxmlLoader.load();
             borderPane.setCenter(root);
         } catch (IOException e) {
@@ -154,7 +154,7 @@ public class ClientPageController {
             alert.setHeaderText("Are you sure you want to logout?");
             alert.showAndWait();
             if(alert.getResult().getText().equals("OK")) {
-                FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/login-page.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/login-page.fxml"));
                 Parent root = fxmlLoader.load();
                 Stage stage = (Stage) borderPane.getScene().getWindow();
                 Scene scene = new Scene(root);

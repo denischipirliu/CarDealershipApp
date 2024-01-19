@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,32 +79,48 @@ public class AddCarController {
 
     @FXML
     private void handleAddCarButton(ActionEvent event) {
-        String make = makeChoiceBox.getValue();
-        String model = modelChoiceBox.getValue();
-        int year = Integer.parseInt(yearField.getText());
-        float price = Float.parseFloat(priceField.getText());
-        String color = colorField.getText();
-        int mileage = Integer.parseInt(mileageField.getText());
-        String vin = vinField.getText();
-        String engineType = engineTypeField.getText();
-        String transmissionType = transmissionTypeField.getText();
-        String fuelType = fuelTypeField.getText();
-        int seatingCapacity = Integer.parseInt(seatingCapacityField.getText());
-        String image = carImage.getUrl();
-        List<String> features = new ArrayList<>();
-        for (int i = 0; i < checkboxContainer.getChildren().size(); i++) {
-            CheckBox checkBox = (CheckBox) checkboxContainer.getChildren().get(i);
-            if (checkBox.isSelected()) {
-                features.add(checkBox.getText());
+        try {
+            String make = makeChoiceBox.getValue();
+            String model = modelChoiceBox.getValue();
+            int year = Integer.parseInt(yearField.getText());
+            float price = Float.parseFloat(priceField.getText());
+            String color = colorField.getText();
+            int mileage = Integer.parseInt(mileageField.getText());
+            String vin = vinField.getText();
+            String engineType = engineTypeField.getText();
+            String transmissionType = transmissionTypeField.getText();
+            String fuelType = fuelTypeField.getText();
+            int seatingCapacity = Integer.parseInt(seatingCapacityField.getText());
+            String image = carImage.getUrl();
+            List<String> features = new ArrayList<>();
+            for (int i = 0; i < checkboxContainer.getChildren().size(); i++) {
+                CheckBox checkBox = (CheckBox) checkboxContainer.getChildren().get(i);
+                if (checkBox.isSelected()) {
+                    features.add(checkBox.getText());
+                }
             }
+            Car newCar = new Car(make, model, year, price, color, mileage, vin, engineType, transmissionType, fuelType, seatingCapacity, features, image, CarStatus.AVAILABLE);
+            CarDao carDao = new CarDao();
+            carDao.addCar(newCar);
+            Alert carAdded = new Alert(Alert.AlertType.INFORMATION);
+            carAdded.setTitle("Car Added");
+            carAdded.setContentText("The car has been added to the database.");
+            carAdded.showAndWait();
+        } catch (SQLException throwables) {
+            if (throwables.getSQLState().equals("23505") || throwables.getSQLState().equals("23514")) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Invalid input!");
+                alert.showAndWait();
+            }
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill in all fields!");
+            alert.showAndWait();
         }
-        Car newCar = new Car(make, model, year, price, color, mileage, vin, engineType, transmissionType, fuelType, seatingCapacity, features, image, CarStatus.AVAILABLE);
-        CarDao carDao = new CarDao();
-        carDao.addCar(newCar);
-        Alert carAdded = new Alert(Alert.AlertType.INFORMATION);
-        carAdded.setTitle("Car Added");
-        carAdded.setContentText("The car has been added to the database.");
-        carAdded.showAndWait();
     }
 
     public void handleSelectImage(ActionEvent event) {

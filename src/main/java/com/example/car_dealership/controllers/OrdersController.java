@@ -133,7 +133,7 @@ public class OrdersController {
                     Integer carId = cell.getItem();
                     Car car = new CarDao().getCar(carId);
                     try {
-                        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/edit-car.fxml"));
+                        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/edit-car.fxml"));
                         Parent root = fxmlLoader.load();
                         EditCarController editCarController = fxmlLoader.getController();
                         editCarController.setCar(car);

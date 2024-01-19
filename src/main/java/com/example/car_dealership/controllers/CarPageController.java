@@ -96,7 +96,7 @@ public class CarPageController {
     }
     private void handleBuyButton(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/buy-car.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/buy-car.fxml"));
             Parent root = fxmlLoader.load();
             BuyCarController buyCarController = fxmlLoader.getController();
             buyCarController.setCarAndClient(car, client);
@@ -117,7 +117,7 @@ public class CarPageController {
     }
     private void handleBackButton(ActionEvent event) {
         try{
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/view-cars.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/view-cars.fxml"));
             Parent root = fxmlLoader.load();
             ViewCarsController viewCarsController = fxmlLoader.getController();
             viewCarsController.setClient(client);

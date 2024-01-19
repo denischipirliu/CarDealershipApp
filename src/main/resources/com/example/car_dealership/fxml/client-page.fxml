@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="borderPane"  stylesheets="@../com/example/car_dealership/styles.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.controllers.ClientPageController">
+<BorderPane fx:id="borderPane" stylesheets="@../styles.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.controllers.ClientPageController">
    <left>
       <VBox fx:id="sideMenu" alignment="CENTER" prefHeight="886.0" prefWidth="100.0" spacing="50.0" styleClass="sidemenu" BorderPane.alignment="CENTER">
          <children>
             <ImageView fx:id="profileImg" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#loadProfilePage" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../com/example/car_dealership/icons/profile-icon.png" />
+                  <Image url="@../icons/profile-icon.png" />
                </image>
             </ImageView>
             <Label fx:id="profileLabel" onMouseClicked="#loadProfilePage" text="My profile">
@@ -26,7 +26,7 @@
             </Label>
             <ImageView fx:id="carImg" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#loadCarsPage" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../com/example/car_dealership/icons/car-icon.png" />
+                  <Image url="@../icons/car-icon.png" />
                </image>
             </ImageView>
             <Label fx:id="carLabel" onMouseClicked="#loadCarsPage" text="Cars">
@@ -36,7 +36,7 @@
             </Label>
             <ImageView fx:id="orderImg" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#loadOrdersPage" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../com/example/car_dealership/icons/order-icon.png" />
+                  <Image url="@../icons/order-icon.png" />
                </image>
             </ImageView>
             <Label fx:id="orderLabel" onMouseClicked="#loadOrdersPage" text="My orders">
@@ -46,7 +46,7 @@
             </Label>
             <ImageView fx:id="contactImg" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#loadContactPage" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../com/example/car_dealership/icons/contact-icon.png" />
+                  <Image url="@../icons/contact-icon.png" />
                </image>
             </ImageView>
             <Label fx:id="contactLabel" onMouseClicked="#loadContactPage" text="Contact us">
@@ -62,7 +62,7 @@
          <children>
             <ImageView fx:id="menuImg" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../com/example/car_dealership/icons/menu-icon.png" />
+                  <Image url="@../icons/menu-icon.png" />
                </image>
                <viewport>
                   <Rectangle2D />
@@ -73,7 +73,7 @@
             </ImageView>
             <ImageView fx:id="logoutImg" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#handleLogoutClick" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../com/example/car_dealership/icons/logout-icon.png" />
+                  <Image url="@../icons/logout-icon.png" />
                </image>
             </ImageView>
          </children>

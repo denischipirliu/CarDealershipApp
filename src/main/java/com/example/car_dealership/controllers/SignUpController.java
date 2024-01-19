@@ -8,12 +8,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Objects;
 
 public class SignUpController {
     @FXML
@@ -28,40 +30,49 @@ public class SignUpController {
     private CheckBox clientCheckBox;
     @FXML
     private Button goBackButton;
+
     public SignUpController() {
     }
+
     public void initialize() {
-        signUpButton.setOnAction(event -> {
-            try {
-                signup(event);
-            } catch (SQLException e) {
-                e.printStackTrace(); // Handle the exception according to your application's requirements
-            }
-        });
+        signUpButton.setOnAction(this::signup);
         adminCheckBox.setOnAction(this::handleCheck);
         clientCheckBox.setOnAction(this::handleCheck);
         goBackButton.setOnAction(this::goBack);
     }
+
     @FXML
-    public void signup(ActionEvent event) throws SQLException {
-        if(usernameField.getText().isEmpty() || passwordField.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Sign up failed!");
+    public void signup(ActionEvent event) {
+        try {
+            if (usernameField.getText().isEmpty() || passwordField.getText().isEmpty())
+                throw new Exception();
+            String role = getRole();
+            User user = new User(usernameField.getText(), passwordField.getText(), role);
+            UserDao userDao = new UserDao();
+            userDao.insertUser(user);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Sign up successful!");
             alert.setHeaderText(null);
-            alert.setContentText("Please enter username and password!");
+            alert.setContentText("Welcome, " + user.getUsername() + "!");
             alert.showAndWait();
-            return;
+        } catch (SQLException e) {
+            if (e.getSQLState().equals("23505")) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Sign up failed!");
+                alert.setHeaderText(null);
+                alert.setContentText("User already exists!");
+                alert.showAndWait();
+            }
         }
-        String role = getRole();
-        User user = new User(usernameField.getText(), passwordField.getText(), role);
-        UserDao userDao = new UserDao();
-        userDao.insertUser(user);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Sign up successful!");
-        alert.setHeaderText(null);
-        alert.setContentText("Welcome, " + user.getUsername() + "!");
-        alert.showAndWait();
+        catch (Exception e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Sign up failed!");
+                alert.setHeaderText(null);
+                alert.setContentText("Please enter username and password!");
+                alert.showAndWait();
+        }
     }
+
     public String getRole() {
         if (adminCheckBox.isSelected()) {
             return "admin";
@@ -76,6 +87,7 @@ public class SignUpController {
             return null;
         }
     }
+
     @FXML
     public void handleCheck(ActionEvent event) {
         switch (((CheckBox) event.getSource()).getId()) {
@@ -91,10 +103,11 @@ public class SignUpController {
                 break;
         }
     }
+
     @FXML
     public void goBack(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/login-page.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/login-page.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = (Stage) signUpButton.getScene().getWindow();
             Scene scene = new Scene(root);

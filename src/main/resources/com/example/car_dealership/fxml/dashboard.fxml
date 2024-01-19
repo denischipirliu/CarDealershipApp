@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_LEFT" prefHeight="850.0" prefWidth="1600.0" styleClass="dashboard-background" stylesheets="@../com/example/car_dealership/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.controllers.DashboardController">
+<VBox alignment="TOP_LEFT" prefHeight="850.0" prefWidth="1600.0" styleClass="dashboard-background" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_dealership.controllers.DashboardController">
    <children>
       <Label styleClass="title" text="Dashboard" />
       <GridPane alignment="CENTER" hgap="20" prefHeight="600" prefWidth="800" vgap="20">

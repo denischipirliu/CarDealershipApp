@@ -104,7 +104,7 @@ public class ViewCarsController {
             Button editButton = new Button("Edit");
             editButton.setOnAction(actionEvent -> {
                 try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/edit-car.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/edit-car.fxml"));
                     Parent root = fxmlLoader.load();
                     EditCarController editCarController = fxmlLoader.getController();
                     editCarController.setCar(car);
@@ -264,7 +264,7 @@ public class ViewCarsController {
 
     public void handleCarBox(MouseEvent event, Car selectedCar) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/car-page.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/car-page.fxml"));
             Parent root = fxmlLoader.load();
             CarPageController carPageController = fxmlLoader.getController();
             carPageController.setCar(selectedCar);
@@ -278,7 +278,7 @@ public class ViewCarsController {
     }
     public void handleAddCarButton(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/fxml/add-car.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/com/example/car_dealership/fxml/add-car.fxml"));
             Parent root = fxmlLoader.load();
             Stage addCarStage = new Stage();
             addCarStage.initModality(Modality.APPLICATION_MODAL);
