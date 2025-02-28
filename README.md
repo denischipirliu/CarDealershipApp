@@ -36,7 +36,7 @@ Car Dealership Management System is a JavaFX-based desktop application designed 
 ## Installation & Setup
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/denischipirliu/CarDealershipApplication.git
+   git clone https://github.com/denischipirliu/CarDealershipApp.git
    ```
 2. **Open the project in an IDE (e.g., IntelliJ, Eclipse).**
 3. **Set up the PostgreSQL database:**
